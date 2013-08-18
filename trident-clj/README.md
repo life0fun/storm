@@ -37,12 +37,22 @@ If you have local jar, use mvn deploy rather than mvn install.
   (:gen-class
     :name com.colorcloud.trident.TweetSpout  ; convert this ns to class Tweet
     :preﬁx -     ; class methods prefix, class method get this as first arg.
-    :state state ; :state deﬁnes a method which will return the object's state. put a atom {} to store your serializables.
-    :init init   ; Must return [ [superclass-constructor-args] state] 
+    :state state ; a single map stores object fields
+    :init init   ; ret [[args to superclass constructor] state-map ]
+
     :constructors {[] []   ; empty arg constructor
                    [String int] []}  ; a map of constructor sig to superclass construcotr signature
     :extends storm.trident.operation.BaseAggregator
     :implements [storm.trident.spout.IBatchSpout]))  ; this ns impl Function
+
+  ## state and init
+    :state refs to the object's state. add your object fields into state. e.g., put a atom {} to store your serializables. state object created in init fn.
+    
+    :init defines a fn that rets a vector with the first ele of vector is a vector of args to superclass constructor. ret the second arg that is object state created inside init fn. 
+      e.g [ [superclass-constructor-args] (create state map)] 
+
+    :constructors maps the args of class' constructor to the args of super class's constructor. This is to determine which constructor to call.
+    Each entry in constructors map need an impl in init fn.
 
 ## redis data mapper
 
