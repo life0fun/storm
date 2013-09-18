@@ -6,5 +6,7 @@
 	<classpathentry kind="lib" path="/Users/e51141/macsrc/datasci/trident-hackaton/lib/commons-io-1.4.jar"/>
 	<classpathentry kind="lib" path="/Users/e51141/macsrc/datasci/trident-hackaton/lib/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="/Users/e51141/macsrc/clj/myclj/wordcount/lib/dev/jedis-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/e51141/macsrc/clj/myclj/wordcount/lib/log4j-core-2.0-beta8.jar"/>
+	<classpathentry kind="lib" path="/Users/e51141/macsrc/clj/myclj/wordcount/lib/log4j-api-2.0-beta8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
